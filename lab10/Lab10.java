@@ -8,7 +8,8 @@ public class Lab10 {
 
 	static List<Movie> movies = new ArrayList<>();
 	static List<String> directors = new ArrayList<>();
-
+	static List<String> genres = new ArrayList<>();
+	
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in);
 		String goAgain = null;
@@ -29,6 +30,11 @@ public class Lab10 {
 			}
 
 			if (userSelect.equals("genre")) {
+				System.out.println("\nFilms by Genre");
+				System.out.println("===============\n");
+				for (String type : genres) {
+					System.out.println(type);
+				}
 				browseByGenre(scnr);
 			}
 			
@@ -92,7 +98,7 @@ public class Lab10 {
 
 	public static void browseByGenre(Scanner scnr) {
 
-		System.out.println("Which genre interests you? (drama/horror/animated/sci-fi)");
+		System.out.println("Which genre interests you?");
 		String userSelect = scnr.nextLine().toLowerCase();
 
 		if ((!userSelect.equals("drama")) && (!userSelect.equals("horror")) && (!userSelect.equals("animated"))
@@ -132,6 +138,7 @@ public class Lab10 {
 
 		}
 
+		System.out.println("\n");
 		System.out.println("Enter a film title to learn about it: \n");
 		String userTitle = scnr.nextLine();
 
@@ -166,6 +173,12 @@ public class Lab10 {
 	}
 
 	public static void movieInit() {
+		
+		genres.add("Horror");
+		genres.add("Drama");
+		genres.add("Animated");
+		genres.add("Sci-fi");
+		
 		Movie gone = new Movie();
 		gone.setTitle("Gone With the Wind");
 		gone.setGenre("drama");
