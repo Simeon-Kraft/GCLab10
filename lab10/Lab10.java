@@ -24,14 +24,14 @@ public class Lab10 {
 			System.out.println(userSelect);
 
 			if (userSelect.equals("title")) {
-				System.out.println("\nFilms by Title");
-				System.out.println("==============\n");
+				System.out.println("\nFilms by Title\n" + "==============\n"
+			);
+				
 				browseByTitle(scnr);
 			}
 
 			if (userSelect.equals("genre")) {
-				System.out.println("\nFilms by Genre");
-				System.out.println("===============\n");
+				System.out.println("\nFilms by Genre\n" + "===============\n");
 				for (String type : genres) {
 					System.out.println(type);
 				}
@@ -39,8 +39,7 @@ public class Lab10 {
 			}
 			
 			if (userSelect.equals("director")) {
-				System.out.println("\nFilms by Director");
-				System.out.println("=================\n");
+				System.out.println("\nFilms by Director\n" + "=================\n");
 				for (String dir : directors) {
 					System.out.println(dir);
 				}
@@ -51,7 +50,7 @@ public class Lab10 {
 			
 			
 			
-			System.out.println("Continue? (y/n)");
+			System.out.println("Do you want to continue browsing? (y/n)");
 			goAgain = scnr.nextLine();
 		} while (goAgain.equalsIgnoreCase("y"));
 
