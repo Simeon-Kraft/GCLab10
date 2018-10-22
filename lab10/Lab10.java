@@ -9,7 +9,7 @@ public class Lab10 {
 	static List<Movie> movies = new ArrayList<>();
 	static List<String> directors = new ArrayList<>();
 	static List<String> genres = new ArrayList<>();
-	
+
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in);
 		String goAgain = null;
@@ -24,9 +24,8 @@ public class Lab10 {
 			System.out.println(userSelect);
 
 			if (userSelect.equals("title")) {
-				System.out.println("\nFilms by Title\n" + "==============\n"
-			);
-				
+				System.out.println("\nFilms by Title\n" + "==============\n");
+
 				browseByTitle(scnr);
 			}
 
@@ -37,7 +36,7 @@ public class Lab10 {
 				}
 				browseByGenre(scnr);
 			}
-			
+
 			if (userSelect.equals("director")) {
 				System.out.println("\nFilms by Director\n" + "=================\n");
 				for (String dir : directors) {
@@ -46,10 +45,6 @@ public class Lab10 {
 				browseByDirector(scnr);
 			}
 
-			
-			
-			
-			
 			System.out.println("Do you want to continue browsing? (y/n)");
 			goAgain = scnr.nextLine();
 		} while (goAgain.equalsIgnoreCase("y"));
@@ -57,26 +52,26 @@ public class Lab10 {
 		System.out.println("Goodbye.");
 
 	}
-	
+
 	public static void browseByDirector(Scanner scnr) {
-		
+
 		System.out.println("\nChoose a director (Enter full name): ");
 		String userInput = scnr.nextLine();
-		
+
 		boolean directorExists = false;
 		for (Movie film : movies) {
 			if (film.getDirector().equalsIgnoreCase(userInput)) {
 				directorExists = true;
-				
+
 				System.out.println(film.getTitle());
-				
+
 			}
 		}
 		if (!directorExists) {
 			System.out.println("It seems we have no films by that director. Try again.\n");
 			browseByDirector(scnr);
 		}
-		
+
 		System.out.println("Enter a film title to learn about it: \n");
 		String userTitle = scnr.nextLine();
 
@@ -86,14 +81,10 @@ public class Lab10 {
 				return;
 			}
 		}
-		
+
 		System.out.println("This database has no films by that name.");
 
 	}
-		
-		
-		
-
 
 	public static void browseByGenre(Scanner scnr) {
 
@@ -124,10 +115,9 @@ public class Lab10 {
 				return;
 			}
 		}
-		
+
 		System.out.println("This database has no films by that name.");
-		
-		
+
 	}
 
 	public static void browseByTitle(Scanner scnr) {
@@ -147,7 +137,7 @@ public class Lab10 {
 				return;
 			}
 		}
-		
+
 		System.out.println("This database has no films by that name.");
 
 	}
@@ -172,111 +162,51 @@ public class Lab10 {
 	}
 
 	public static void movieInit() {
-		
+
 		genres.add("Horror");
 		genres.add("Drama");
 		genres.add("Animated");
 		genres.add("Sci-fi");
-		
-		Movie gone = new Movie();
-		gone.setTitle("Gone With the Wind");
-		gone.setGenre("drama");
-		gone.setDirector("Victor Fleming");
 
-		Movie third = new Movie();
-		third.setTitle("The Third Man");
-		third.setGenre("drama");
-		third.setDirector("Orson Welles");
+		Movie gone = new Movie("Gone With the Wind", "drama", "Victor Fleming");
 
-		Movie king = new Movie();
-		king.setTitle("The King's Speech");
-		king.setGenre("drama");
-		king.setDirector("Tom Hooper");
+		Movie third = new Movie("The Third Man", "drama", "Orson Welles");
 
-		Movie godfather = new Movie();
-		godfather.setTitle("The Godfather");
-		godfather.setGenre("drama");
-		godfather.setDirector("Francis Ford Coppola");
+		Movie king = new Movie("The King's Speech", "drama", "Tom Hooper");
 
-		Movie leben = new Movie();
-		leben.setTitle("Das Leben der Anderen");
-		leben.setGenre("drama");
-		leben.setDirector("Florian Henckel von Donnersmarck");
+		Movie godfather = new Movie("The Godfather", "drama", "Francis Ford Coppola");
 
-		Movie snow = new Movie();
-		snow.setTitle("Snowpiercer");
-		snow.setGenre("sci-fi");
-		snow.setDirector("Bong Joon-ho");
+		Movie leben = new Movie("Das Leben der Anderen", "drama", "Florian Henckel von Donnersmarck");
 
-		Movie brazil = new Movie();
-		brazil.setTitle("Brazil");
-		brazil.setGenre("sci-fi");
-		brazil.setDirector("Terry Gilliam");
+		Movie snow = new Movie("Snowpiercer", "sci-fi", "Bong Joon-ho");
 
-		Movie robot = new Movie();
-		robot.setTitle("I, Robot");
-		robot.setGenre("sci-fi");
-		robot.setDirector("Alex Proyas");
+		Movie brazil = new Movie("Brazil", "sci-fi", "Terry Gilliam");
 
-		Movie primer = new Movie();
-		primer.setTitle("Primer");
-		primer.setGenre("sci-fi");
-		primer.setDirector("Shane Carruth");
+		Movie robot = new Movie("I, Robot", "sci-fi", "Alex Proyas");
 
-		Movie blade = new Movie();
-		blade.setTitle("Blade Runner");
-		blade.setGenre("sci-fi");
-		blade.setDirector("Ridley Scott");
+		Movie primer = new Movie("Primer", "sci-fi", "Shane Carruth");
 
-		Movie kiki = new Movie();
-		kiki.setTitle("Kiki's Delivery Service");
-		kiki.setGenre("animated");
-		kiki.setDirector("Hayao Miyazaki");
+		Movie blade = new Movie("Blade Runner", "sci-fi", "Ridley Scott");
 
-		Movie poppy = new Movie();
-		poppy.setTitle("From Up on Poppy Hill");
-		poppy.setGenre("animated");
-		poppy.setDirector("Hayao Miyazaki");
+		Movie kiki = new Movie("Kiki's Delivery Service", "animated", "Hayao Miyazaki");
 
-		Movie spirit = new Movie();
-		spirit.setTitle("Spirited Away");
-		spirit.setGenre("animated");
-		spirit.setDirector("Hayao Miyazaki");
+		Movie poppy = new Movie("From Up on Poppy Hill", "animated", "Hayao Miyazaki");
 
-		Movie porco = new Movie();
-		porco.setTitle("Porco Rosso");
-		porco.setGenre("animated");
-		porco.setDirector("Hayao Miyazaki");
+		Movie spirit = new Movie("Spirited Away", "animated", "Hayao Miyazaki");
 
-		Movie grave = new Movie();
-		grave.setTitle("Grave of the Fireflies");
-		grave.setGenre("animated");
-		grave.setDirector("Hayao Miyazaki");
+		Movie porco = new Movie("Porco Rosso", "animated", "Hayao Miyazaki");
 
-		Movie nos = new Movie();
-		nos.setTitle("Nosferatu");
-		nos.setGenre("horror");
-		nos.setDirector("F.W. Murnau");
+		Movie grave = new Movie("Grave of the Fireflies", "animated", "Hayao Miyazaki");
 
-		Movie shining = new Movie();
-		shining.setTitle("The Shining");
-		shining.setGenre("horror");
-		shining.setDirector("Stanley Kubrick");
+		Movie nos = new Movie("Nosferatu", "horror", "F.W. Murnau");
 
-		Movie psycho = new Movie();
-		psycho.setTitle("Psycho");
-		psycho.setGenre("horror");
-		psycho.setDirector("Alfred Hitchcock");
+		Movie shining = new Movie("The Shining", "horror", "Stanley Kubrick");
 
-		Movie jaws = new Movie();
-		jaws.setTitle("Jaws");
-		jaws.setGenre("horror");
-		jaws.setDirector("Steven Spielberg");
+		Movie psycho = new Movie("Psycho", "horror", "Alfred Hitchcock");
 
-		Movie birds = new Movie();
-		birds.setTitle("The Birds");
-		birds.setGenre("horror");
-		birds.setDirector("Alfred Hitchcock");
+		Movie jaws = new Movie("Jaws", "horror", "Steven Spielberg");
+
+		Movie birds = new Movie("The Birds", "horror", "Alfred Hitchcock");
 
 		movies.add(primer);
 		movies.add(godfather);
@@ -298,7 +228,7 @@ public class Lab10 {
 		movies.add(psycho);
 		movies.add(shining);
 		movies.add(nos);
-		
+
 		directors.add("Alfred Hitchcock");
 		directors.add("Steven Spielberg");
 		directors.add("Stanley Kubrick");
